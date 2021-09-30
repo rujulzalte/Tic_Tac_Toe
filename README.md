@@ -11,9 +11,7 @@ This is the README file for the repository of a game known as Tic Tac Toe. If yo
 
 To run the game you would be needing [**Python3**](https://www.python.org/downloads/) 
 
-	- Version 3.6.x and greater
-	- Version 3.7.x and greater
-	- Version 3.8.x and greater
+	* Version 3.6.x and greater
 
 ## Instructions 
 

@@ -2,18 +2,22 @@
 # You can play with computer
 # Code is implemented on basic knowledge of While loop, Function and if else
 
+import random
+
 
 def main_tic_tac_toe():
     def instructions():
         print(""" **WELCOME TO THE**\n
  ________   _   ______             _________   ______    ______             _________    _______    ________
-/___  ___\ / \ /   ___/           /___   ___\ /  __  \  /  ____/           /___   ___\  /  ___  \  /   _____\  
-   / \     | | |  /       _____       / \     |  __  | |  /        ______      / \     |  /   \  | |   \     
+/___  ___\ / \ /   ___/           /___   ___\ /  __  \  /  ____/           /___   ___\  /  ___  \  /   _____\
+   / \     | | |  /       _____       / \     |  __  | |  /        ______      / \     |  /   \  | |   \
    | |     | | |  \___    \_____\     | |     | |  | | |  \____    \_____\     | |     |  \___/  | |   /____
    \_/     \_/ \______\               \_/     \_/  \_/  \______\               \_/      \_______/   \________\
-   \n\n **GAME** CODED BY: RUJUL ZALTE	\n			 
-    THIS WILL BE A BATTLE BETWEEN A HUMAN MIND AND AN ARTIFICIAL INTELLIGENCE(COMPUTER)	\n
-    BOARD WOULD LOOK SIMILAR TO THIS & ENSURE THAT YOU MENTION NUMBERS WITHIN RANGE 0-8:\n\n
+   \n\n **GAME** CODED BY: RUJUL ZALTE    \n
+    THIS WILL BE A BATTLE BETWEEN A HUMAN MIND \
+AND AN ARTIFICIAL INTELLIGENCE(COMPUTER)	\n
+    BOARD WOULD LOOK SIMILAR TO THIS & ENSURE \
+THAT YOU MENTION NUMBERS WITHIN RANGE 0-8:\n\n
                     0 | 1 | 2
                     ---------
                     3 | 4 | 5
@@ -32,45 +36,46 @@ def main_tic_tac_toe():
         print ("||", ttt_Board[3], "||", ttt_Board[4], "||", ttt_Board[5])
         print (" ____________")
         print ("||", ttt_Board[6], "||", ttt_Board[7], "||", ttt_Board[8])
-        print (" ____________") 
+        print (" ____________")
     display_board(ttt_Board)
 
     # Chance given to Player to enter the choice
-    
     def choose_player(ttt_Board, user_char):
         valid_move = False
         while (not valid_move):
             if user_char == "X":
-                choice = int(input("PLAYER: PLEASE SELECT YOUR CHOICE TO MAKE A MOVE ON THE BOARD: \n >> "))
-                if choice in range(0, 9): 
+                choice = int(input("PLAYER: PLEASE SELECT YOUR CHOICE \
+TO MAKE A MOVE ON THE BOARD: \n >> "))
+                if choice in range(0, 9):
                     if (ttt_Board[choice] != "X" and ttt_Board[choice] != "O"):
                         ttt_Board[choice] = "X"
                         valid_move = True
                     else:
-                        print("SORRY THE POSTION IS ALREADY OCCUPIED BY :, ", ttt_Board[choice])
+                        print("SORRY THE POSTION IS ALREADY \
+OCCUPIED BY :, ", ttt_Board[choice])
                 else:
                     print("SORRY WRONG INPUT (PLEASE MENTION BETWEEN 0-8)")
             elif user_char == "O":
-                choice = int(input("PLAYER: PLEASE SELECT YOUR CHOICE TO MAKE A MOVE ON THE BOARD: \n >> "))
-                if choice in range(0, 9): 
+                choice = int(input("PLAYER: PLEASE SELECT YOUR CHOICE \
+TO MAKE A MOVE ON THE BOARD: \n >> "))
+                if choice in range(0, 9):
                     if (ttt_Board[choice] != "X" and ttt_Board[choice] != "O"):
                         ttt_Board[choice] = "O"
                         valid_move = True
                     else:
-                        print("SORRY THE POSTION IS ALREADY OCCUPIED BY :, ", ttt_Board[choice])
+                        print("SORRY THE POSTION IS ALREADY \
+OCCUPIED BY :, ", ttt_Board[choice])
                 else:
                     print("SORRY WRONG INPUT (PLEASE MENTION BETWEEN 0-8)")
         return win_direction(ttt_Board)
-        
+
     # Chance given to Computer to enter the choice
-    import random
-    
     def choose_computer(ttt_board, user_char):
         valid_move = False
         if user_char == "X":
             while (not valid_move):
                 random.seed()
-                choice=random.randint(0, 8)
+                choice = random.randint(0, 8)
                 if (ttt_Board[choice] != "X" and ttt_Board[choice] != "O"):
                     ttt_Board[choice] = "O"
                     print("COMPUTER MADE THE MOVE")
@@ -78,13 +83,13 @@ def main_tic_tac_toe():
         elif user_char == "O":
             while (not valid_move):
                 random.seed()
-                choice=random.randint(0, 8)
+                choice = random.randint(0, 8)
                 if (ttt_Board[choice] != "X" and ttt_Board[choice] != "O"):
                     ttt_Board[choice] = "X"
                     print("COMPUTER MADE THE MOVE")
                     valid_move = True
         return win_direction(ttt_Board)
-        
+
     # Deciding the Vertical Winning Conditions
     def win_vertical(ttt_board):
         winner = False
@@ -122,9 +127,9 @@ def main_tic_tac_toe():
         if (win_vertical(ttt_board) == True):
             game_winner = True
         elif (win_horizontal(ttt_board) == True):
-            game_winner = True  
+            game_winner = True
         elif (win_diagonal(ttt_board) == True):
-            game_winner = True 
+            game_winner = True
         return game_winner
 
     # DECIDE TO RESTART THE GAME
@@ -147,10 +152,12 @@ def main_tic_tac_toe():
     x = True
     while x:
         if start == "Y":
-            print("GREAT YOU ARE THE ONE WHO IS GOING TO GO FIRST:  ")
+            print("GREAT YOU ARE THE ONE \
+WHO IS GOING TO GO FIRST:  ")
             x = False
         elif start == "N":
-            print("AS YOU DECIDED TO NOT START FIRST, GIVING COMPUTER THE FIRST MOVE:  ")
+            print("AS YOU DECIDED TO NOT START FIRST, \
+GIVING COMPUTER THE FIRST MOVE:  ")
             x = False
         else:
             print("INVALID INPUT PLEASE ENTER (Y/N)")
@@ -158,7 +165,8 @@ def main_tic_tac_toe():
             start = start.upper()
 
     # TAKING VALUE FROM USER
-    user_char = input("CHOOSE THE CHARATER YOU WANT TO PLAY WITH (X/O) \n>>")
+    user_char = input("CHOOSE THE CHARATER YOU WANT \
+TO PLAY WITH (X/O) \n>>")
     user_char = user_char.upper()
 
     # DECIDE THE ALTERNATE CHANCES
@@ -201,4 +209,3 @@ def main_tic_tac_toe():
         restart()
 
 main_tic_tac_toe()
-
